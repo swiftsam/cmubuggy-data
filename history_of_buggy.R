@@ -302,7 +302,7 @@ ggsave(filename = file.path(kPlotDir, "comp.asym.year.png"),
        width = kPlotWidth,
        height = kPlotHeight)
 
-top.times[raceclass == "Men's", asym := 121]
+top.times[raceclass == "Men's", asym := 120]
 top.times[raceclass == "Women's", asym := 140]
 
 top.times[new_record == TRUE, record_delta := c(NA,abs(diff(record))), by=raceclass]
@@ -314,8 +314,14 @@ ggplot(top.times, aes(year, -percent_gap, fill = raceclass)) +
   facet_grid(raceclass~.) +
   scale_y_continuous(labels=percent)+
   scale_x_continuous(breaks = seq(1925,2015,5))+
-  labs(x="", y="") +
+  scale_fill_manual(values = kScaleColorGender)+
+  labs(x="", y="Percent of remaining delta",
+       title="New Records as Progress Toward Potential Asymptote") +
   theme_bw() + theme(legend.position = "none")
+
+ggsave(filename = file.path(kPlotDir, "comp.asym.progress.png"),
+       width = kPlotWidth,
+       height = kPlotHeight)
 
 ####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #### Dynasties
