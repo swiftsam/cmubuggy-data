@@ -1,21 +1,5 @@
 ####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-### Betterment Database Querying Tools
-###
-### Purpose
-###  * Takes a DB name and a SQL query and returns data
-###
-### Notes:
-###  * Loads configuration and authentication information from a locally stored YAML file
-###  * YAML Configuration: To connect to Beterment DBs, you need to use your username and password credentials.
-###    To use this function, credentials should be stored in a db_creds.yml file.
-###    Consider saving it in the default location: ~/src/db_creds.yml.
-###    Run queryDB(query = "", yaml.path="") to see an example of the file structure.
-###
-### Example Usage
-### QueryDB(query = "SELECT * FROM table WHERE id = 1000;",
-###         db='datawarehouse')
-###
-### Primary Creator(s): Sam Swift (swift@betterment.com)
+### Database Connection Function
 ####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 require(yaml)
 require(RMySQL)
