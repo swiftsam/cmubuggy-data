@@ -1,8 +1,15 @@
+####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Generate Freeroll Dates
+###
+### Purpose
+###  * quick script to generate a table of weekend dates during buggy season
+###
+### Primary Creator(s): Sam Swift (samswift@cmubuggy.org)
+####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 freerolls <- data.table(roll_date = seq.Date(as.Date("2004-01-01"),
                                         as.Date("2009-12-31"),
                                         by="days"))
-
 
 freerolls[, day_of_week := weekdays(roll_date)]
 freerolls[, month := as.integer(format(roll_date, "%m"))]

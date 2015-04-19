@@ -2,12 +2,13 @@
 ### Data Scientist's History of Buggy
 ###
 ### Purpose
-###  *
+###  * Analyses and visualization for the talk "A Data-Scientist's History of
+###    Buggy" at Racecay 2015.
 ###
 ### Notes:
-###  *
+###  * The slides from that talk can be found here: https://prezi.com/3ghmo_xctamd/
 ###
-### Primary Creator(s): Sam Swift (swift@betterment.com)
+### Primary Creator(s): Sam Swift (samswift@cmubuggy.org)
 ####~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library(data.table)
 library(ggplot2)
@@ -48,7 +49,7 @@ times <- QueryDB(
   JOIN `raceclass`
     ON raceclass.`raceclassid` = entry.`raceclassid`
   ORDER BY raceclass, year, place")
-times[, year:=as.integer(year)]
+times[, year   := as.integer(year)]
 times[, decade := floor(year/10)*10]
 
 entries <- QueryDB(
